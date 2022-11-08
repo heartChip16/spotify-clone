@@ -7,17 +7,29 @@
     <title>Spotify Player</title>
     <link rel="stylesheet" href="../style.css" />
   </head>
-  <body>
-    <h1
+  <body class="h-screen bg-spotifygreen">
+    <!-- <h1
       style="padding: 20px"
-      class="bg-gradient-to-r from-pink-300 to-pink-800 bg-clip-text text-3xl font-bold text-transparent"
+      class="bg-gradient-to-r from-green-400 to-green-900 bg-clip-text text-3xl font-bold text-transparent"
     >
       Welcome Login Page
-    </h1>
-    <h1
-      class="bg-gradient-to-r from-pink-300 to-pink-800 bg-clip-text text-3xl font-bold text-transparent"
-    >
-      Hello world!
-    </h1>
+    </h1> -->
+    <main class="flex h-full w-full items-center justify-center">
+      <section class="flex flex-col items-center gap-8">
+        <img
+          src="../Logo.png"
+          alt="spotify image"
+          srcset=""
+          class="spotify-logo h-1/2 w-1/2"
+        />
+        <input
+          type="button"
+          value="Login to Spotify"
+          id="login-to-spotify"
+          class="h-12 w-64 rounded-md bg-spotifyblack text-spotifywhite hover:cursor-pointer"
+        />
+      </section>
+    </main>
+    <script type="module" src="./login.js"></script>
   </body>
 </html>
