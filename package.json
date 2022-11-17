@@ -10,6 +10,7 @@
     "start": "vite serve ./src --port 3000 --open --host"
   },
   "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.4.2",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.18",
     "prettier": "^2.7.1",

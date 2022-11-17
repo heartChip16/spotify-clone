@@ -5,3 +5,80 @@
 #login-to-spotify {
     padding: 5px;
 }
+
+
+.grid-template-areas {
+    grid-template-areas: 
+    "sidenav main" 
+    "now-playing now-playing"
+    ;
+}
+
+.grid-template-areas .content {
+    grid-area: main;
+}
+
+.grid-template-areas .sidenav {
+    grid-area: sidenav;
+}
+
+.grid-template-areas .now-playing {
+    grid-area: now-playing;
+}
+
+
+
+
+    /* play and pause button  */
+    /* <div class="track-no-play-button hidden"></div> */
+    /* .track-no-play-button {
+        border: 0;
+        background: transparent;
+        box-sizing: border-box;
+        width: 0;
+        height: 14px;
+        border-color: transparent transparent transparent white;
+        transition: 100ms all ease;
+        cursor: pointer;
+        border-style: solid;
+        border-width: 8px 0 8px 14px;
+      } */
+      /* .track-no-play-button.paused {
+        border-style: double;
+        border-width: 0px 0 0px 60px;
+      } */
+      /* .track-no-play-button:hover {
+        border-color: transparent transparent transparent #404040;
+      } */
+
+
+
+
+
+ /* .track.selected .track-no-actual {
+    visibility: hidden;
+}
+
+.track.selected .track-no-play-button {
+    visibility: 'visible';
+ }  */
+
+/* .track:hover .track-no-actual, .track.selected .track-no-actual {
+    visibility: hidden;
+}
+
+.track:hover .track-no-play-button, .track.selected .track-no-play-button {
+    visibility: visible;
+ }  */
+
+
+
+ .material-symbols-outlined {
+   font-variation-settings:
+   'FILL' 1,
+   'wght' 700,
+   'GRAD' 0,
+   'opsz' 48
+ }
+ 
+ 
