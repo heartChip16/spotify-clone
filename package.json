@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite serve ./src",
+    "dev": "vite serve --port 5173",
     "build": "vite build",
-    "preview": "vite preview",
-    "start": "vite serve ./src --port 3000 --open --host"
+    "preview": "vite preview --port 5173",
+    "start": "vite serve ./src --port 5173 --open --host"
   },
   "devDependencies": {
     "@tailwindcss/line-clamp": "^0.4.2",
