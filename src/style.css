@@ -6,6 +6,9 @@
     padding: 5px;
 }
 
+/* .logout {
+  z-index: 1;
+} */
 
 .grid-template-areas {
     grid-template-areas: 
