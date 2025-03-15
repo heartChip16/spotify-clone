@@ -76,21 +76,31 @@ const loadPlaylist = async (endpoint, elementID) => {
     //     document.querySelector("#page-content").classList.remove("mt-48");
     // }
     const playlistContent = document.querySelector(`#page-content`);
-    const { message, playlists: { items } } = await fetchRequest(endpoint);
+    const data = await fetchRequest(endpoint);
+    // console.log('data ', data);
+    const items = data?.items || [];
+
+    // const { message, playlists: { items } } = await fetchRequest(endpoint);
+    // console.log('message', message);
+    // console.log('items', items);
+    // const message = 'TEST';
 
     const playlistSection = document.createElement("section");
     playlistSection.className = "p-4";
 
     const playlistTitle = document.createElement("h1");
     playlistTitle.className = "font-sans text-2xl font-semibold";
-    if (message) {
-        playlistTitle.innerHTML = `<br>${message}<br>`;
-        playlistSection.id = "featured-playlist-items";
-        playlistSection.classList.add("order-first");
-    }
-    else {
-        playlistTitle.innerHTML = `<br>Top Lists<br>`;
-    }
+    // if (message) {
+    //     // playlistTitle.innerHTML = `<br>${message}<br>`;
+    //     playlistSection.id = "featured-playlist-items";
+    //     playlistSection.classList.add("order-first");
+    // }
+    // else {
+    //     playlistTitle.innerHTML = `<br>Top Lists<br>`;
+    // }
+    playlistTitle.innerHTML = `<br>Playlists<br>`;
+
+
     playlistSection.appendChild(playlistTitle);
 
     const playlistSectionInner = document.createElement("section");
@@ -123,13 +133,19 @@ const loadPlaylist = async (endpoint, elementID) => {
 
 }
 
-const loadPlaylists = () => {
+const loadPlaylists = async () => {
     // console.log("calling loadPlaylists");
     const playlistContent = document.querySelector(`#page-content`);
     playlistContent.innerHTML = ``;
 
-    loadPlaylist(ENDPOINT.featuredPlaylist, "featured-playlist-items");
-    loadPlaylist(ENDPOINT.topLists, "top-lists");
+
+    // loadPlaylist(ENDPOINT.featuredPlaylist, "featured-playlist-items");
+    const { id: userId } = await fetchRequest(ENDPOINT.userInfo);
+    const playlistURL = `users/${userId}/playlists`
+    loadPlaylist(playlistURL, 'featured-playlist-items')
+    // loadPlaylist(ENDPOINT.topLists, "top-lists");
+    loadPlaylist(playlistURL, "top-lists");
+
 
 }
 
@@ -463,7 +479,7 @@ const playOrPauseCircleClicked = () => {
     let track = tracks?.querySelector(`#${CSS.escape(id)}`);
     // let {artists, name, album, duration_ms, preview_url} = nowPlaying;
     // console.log("nowPlayingTrack: ", nowPlayingTrack);
-    console.log("prev ID and current id inside playorpause : ", prevTrackID, " ", currentTrackID);
+    // console.log("prev ID and current id inside playorpause : ", prevTrackID, " ", currentTrackID);
     if ((prevTrackID !== currentTrackID)) {
         audio.src = nowPlayingTrack.track.preview_url;
     }
@@ -582,7 +598,7 @@ const playNextOrPrevFromTracks = async (event, image, name, artist, duration_ms,
     console.log(`#${currentTrackID}`);
     var tracks = document.querySelector("#tracks");
     var track = tracks.querySelector(`#${CSS.escape(currentTrackID)}`);
-    console.log("track ", track);
+    // console.log("track ", track);
 
     audio.src = previewURL;  //use new source for audio if not the same id
 
@@ -698,6 +714,7 @@ const loadPlaylistTracks = (playlist) => {
     // }
 
     console.log("Inside loadPlaylistTracks");
+    console.log('playlists inside load tracks', playlist);
     let { tracks } = playlist;
     nowPlayingPlaylist = playlist;
     const trackSections = document.querySelector("#tracks");
@@ -1071,7 +1088,12 @@ const loadNowPlayingDefault = async () => {
     // history.pushState(section, "","");
     // history.pushState(section, "",`/dashboard/playlist/${section.playlist}`);
 
-    const { playlists } = await fetchRequest(`${ENDPOINT.featuredPlaylist}`);
+    // const { playlists } = await fetchRequest(`${ENDPOINT.featuredPlaylist}`);
+    const { id: userId } = await fetchRequest(ENDPOINT.userInfo);
+    const playlistURL = `users/${userId}/playlists`
+    loadPlaylist(playlistURL, 'featured-playlist-items')
+    const playlists = await fetchRequest(playlistURL);
+
 
     // console.log("playlists in loadNow: ", playlists);
     let index = 1;
@@ -1088,7 +1110,7 @@ const loadNowPlayingDefault = async () => {
     // console.log("tracks: ", tracks);
     let trackNo = 1;
     nowPlayingPlaylist = tracks.items;
-    console.log("nowPlayingPlaylist inside loadNowPlayingDefault : ", nowPlayingPlaylist);
+    // console.log("nowPlayingPlaylist inside loadNowPlayingDefault : ", nowPlayingPlaylist);
 
     for (let trackItem of tracks.items) {
         if (trackNo > 1) {
