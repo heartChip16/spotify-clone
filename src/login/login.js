@@ -1,11 +1,11 @@
 import { ACCESS_TOKEN, EXPIRES_IN, TOKEN_TYPE } from "../common";
-// const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
+const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
 const scopes = "user-top-read user-follow-read playlist-read-private user-library-read user-read-private user-read-email playlist-read-collaborative";
-// const REDIRECT_URI = import.meta.env.VITE_REDIRECT_URI;
-// const APP_URL = import.meta.env.VITE_APP_URL;
-const CLIENT_ID = 'c7f27ace1024492c8f2cda661d479e40'
-const REDIRECT_URI = 'http://localhost:5173/login/login.html'
-const APP_URL = 'http://localhost:5173'
+const REDIRECT_URI = import.meta.env.VITE_REDIRECT_URI;
+const APP_URL = import.meta.env.VITE_APP_URL;
+// const CLIENT_ID = 'c7f27ace1024492c8f2cda661d479e40'
+// const REDIRECT_URI = 'http://localhost:5173/login/login.html'
+// const APP_URL = 'http://localhost:5173'
 
 const authorizeUser = () => {
     const url = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${REDIRECT_URI}&scope=${scopes}&show_dialog=true`;

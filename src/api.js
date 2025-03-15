@@ -1,7 +1,7 @@
 import { ACCESS_TOKEN, EXPIRES_IN, TOKEN_TYPE, logout } from "./common";
 
-// const BASE_API_URL = import.meta.env.VITE_API_BASE_URL;
-const BASE_API_URL = 'https://api.spotify.com/v1'
+const BASE_API_URL = import.meta.env.VITE_API_BASE_URL;
+// const BASE_API_URL = 'https://api.spotify.com/v1'
 
 
 

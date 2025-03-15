@@ -1,7 +1,8 @@
-# VITE_REDIRECT_URI=http://localhost:3000/login/login.html
-VITE_REDIRECT_URI=http://localhost:5173/login/login.html
 VITE_API_BASE_URL = https://api.spotify.com/v1
 VITE_CLIENT_ID=c7f27ace1024492c8f2cda661d479e40
+VITE_APP_URL=spotify-clone-ingrid-torres-zhuh7.ondigitalocean.app
+VITE_REDIRECT_URI=spotify-clone-ingrid-torres-zhuh7.ondigitalocean.app/login/login.html
+# VITE_REDIRECT_URI=http://localhost:3000/login/login.html
 # VITE_APP_URL=http://localhost:3000
-VITE_APP_URL=http://localhost:5173
 # VITE_APP_ENV=dev
+#spotify-clone-ingrid-torres-zhuh7.ondigitalocean.app
